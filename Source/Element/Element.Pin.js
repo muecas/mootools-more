@@ -53,8 +53,8 @@ provides: [Element.Pin]
 				pinnedPosition = this.getPosition(supportsPositionFixed ? document.body : this.getOffsetParent());
 				if (!this.retrieve('pin:_pinned')){
 					var currentPosition = {
-						top: pinnedPosition.y - scroll.y,
-						left: pinnedPosition.x - scroll.x
+						top: Math.max(0, pinnedPosition.y - scroll.y),
+						left: Math.max(0, pinnedPosition.x - scroll.x)
 					};
 
 					if (supportsPositionFixed && !forceScroll){
